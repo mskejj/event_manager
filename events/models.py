@@ -8,11 +8,18 @@ class Location(models.Model):
     def __str__(self):
         return self.name
 
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.name
+
 class Event(models.Model):
     name = models.CharField(max_length=100)
     date = models.DateField()
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
-    category = models.ForeignKey('Category', on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -24,13 +31,6 @@ class Ticket(models.Model):
 
     def __str__(self):
         return f"Ticket for {self.event.name}"
-
-class Category(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.TextField()
-
-    def __str__(self):
-        return self.name
 
 class Organizer(models.Model):
     name = models.CharField(max_length=100)

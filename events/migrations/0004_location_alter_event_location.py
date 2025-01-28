@@ -15,6 +15,7 @@ class Migration(migrations.Migration):
             name='Location',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('name', models.CharField(default='Unknown Location', max_length=200)),  # Dodane pole
                 ('city', models.CharField(max_length=100)),
                 ('address', models.CharField(max_length=255)),
             ],

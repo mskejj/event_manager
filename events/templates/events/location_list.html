@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista Wydarzeń</title>
+    <title>Lista Lokalizacji</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <header>
-        <h1>Wydarzenia</h1>
+        <h1>Lokalizacje</h1>
     </header>
-    <section class="event-list">
+    <section class="location-list">
         <ul>
-            {% for event in events %}
-                <li><a href="{% url 'event_detail' event.pk %}">{{ event.name }}</a></li>
+            {% for location in locations %}
+                <li><a href="{% url 'location_detail' location.pk %}">{{ location.city }} - {{ location.address }}</a></li>
             {% empty %}
-                <li>Brak wydarzeń</li>
+                <li>Brak lokalizacji</li>
             {% endfor %}
         </ul>
     </section>

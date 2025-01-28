@@ -3,20 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formularz Wydarzenia</title>
+    <title>{{ location.city }}, {{ location.address }}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <header>
-        <h1>Formularz Wydarzenia</h1>
+        <h1>{{ location.city }}, {{ location.address }}</h1>
     </header>
-    <section class="event-form">
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn">Zapisz</button>
-        </form>
+    <section class="location-detail">
+        <a href="{% url 'location_list' %}" class="btn">Wróć do listy lokalizacji</a>
     </section>
 </body>
 </html>

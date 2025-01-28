@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zestawienie Wydarzeń</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Zestawienie Wydarzeń</h1>
+    </header>
+    <section class="event-summary">
+        <form method="get">
+            <label for="sort_by">Sortuj według:</label>
+            <select name="sort_by" id="sort_by" onchange="this.form.submit()">
+                <option value="date" {% if sort_by == 'date' %}selected{% endif %}>Data</option>
+                <option value="organizer" {% if sort_by == 'organizer' %}selected{% endif %}>Organizator</option>
+            </select>
+        </form>
+        <ul>
+            {% for event in events %}
+                <li>
+                    <div class="event-card">
+                        <a href="{% url 'event_detail' event.pk %}">{{ event.name }}</a>
+                        <p>Data: {{ event.date }}</p>
+                        <p>Organizator: {{ event.organizer }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+</body>
+</html>

@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista Wydarzeń</title>
+    <title>Lista Biletów</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <header>
-        <h1>Wydarzenia</h1>
+        <h1>Bilety</h1>
     </header>
-    <section class="event-list">
+    <section class="ticket-list">
         <ul>
-            {% for event in events %}
-                <li><a href="{% url 'event_detail' event.pk %}">{{ event.name }}</a></li>
+            {% for ticket in tickets %}
+                <li><a href="{% url 'ticket_detail' ticket.pk %}">{{ ticket.ticket_type }} - {{ ticket.price }} PLN - Dostępne: {{ ticket.available_quantity }}</a></li>
             {% empty %}
-                <li>Brak wydarzeń</li>
+                <li>Brak biletów</li>
             {% endfor %}
         </ul>
     </section>

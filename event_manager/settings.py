@@ -99,7 +99,7 @@ USE_TZ = True  # Włączamy strefy czasowe
 # Pliki statyczne (CSS, JavaScript, obrazy)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'  # URL dla plików statycznych
+STATIC_URL = '/static/'  # URL dla plików statycznych
 STATICFILES_DIRS = [BASE_DIR / "static"]  # Dodajemy ścieżkę do katalogu z plikami statycznymi
 STATIC_ROOT = BASE_DIR / "staticfiles"  # Ścieżka do katalogu dla skompilowanych plików statycznych
 

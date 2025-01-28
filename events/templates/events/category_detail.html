@@ -3,20 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formularz Wydarzenia</title>
+    <title>{{ category.name }}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <header>
-        <h1>Formularz Wydarzenia</h1>
+        <h1>{{ category.name }}</h1>
     </header>
-    <section class="event-form">
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn">Zapisz</button>
-        </form>
+    <section class="category-detail">
+        <p>{{ category.description }}</p>
+        <a href="{% url 'category_list' %}" class="btn">Wróć do listy kategorii</a>
     </section>
 </body>
 </html>

@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuń Wydarzenie</title>
+    <title>Edytuj Wydarzenie</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <header>
-        <h1>Usuń Wydarzenie</h1>
+        <h1>Edytuj Wydarzenie</h1>
     </header>
-    <section class="event-delete">
-        <p>Czy na pewno chcesz usunąć wydarzenie "{{ event.name }}"?</p>
+    <section class="event-edit">
         <form method="post">
             {% csrf_token %}
-            <button type="submit" class="btn">Usuń</button>
-            <a href="{% url 'event_list' %}" class="btn">Anuluj</a>
+            {{ form.as_p }}
+            <button type="submit" class="btn">Zapisz</button>
         </form>
     </section>
 </body>

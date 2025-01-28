@@ -1,0 +1,94 @@
+/* Globalne style */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+}
+
+/* Nagłówki */
+h1 {
+    text-align: center;
+    color: #333;
+    padding: 20px 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Linki */
+a {
+    display: inline-block;
+    margin: 10px;
+    text-decoration: none;
+    color: #007bff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a:hover {
+    color: #fff;
+    background-color: #0056b3;
+}
+
+/* Sekcja wydarzeń */
+.event-list {
+    padding: 20px;
+}
+
+.event-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.event-list li {
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: transform 0.3s ease;
+}
+
+.event-list li:hover {
+    transform: translateY(-5px);
+}
+
+/* Stylizacja dla szczegółów wydarzenia */
+.event-detail {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.event-actions {
+    margin-top: 20px;
+}
+
+.event-actions a {
+    margin-right: 10px;
+}
+
+/* Przyciski */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background-color: #007bff;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Stylizacja stopki */
+footer {
+    text-align: center;
+    margin-top: 20px;
+}

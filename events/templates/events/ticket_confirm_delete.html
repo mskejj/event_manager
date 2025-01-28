@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potwierdzenie usunięcia biletu</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block content %}
+      <h2>Potwierdź usunięcie</h2>
+      <p>Jesteś pewny, że chcesz usunąć ten bilet?</p>
+
+      <form method="post">
+        {% csrf_token %}
+        <button type="submit">Tak, usuń</button>
+        <a href="{% url 'ticket_list' %}">Anuluj</a>
+      </form>
+    {% endblock %}
+</body>
+</html>

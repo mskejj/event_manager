@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista Wydarzeń</title>
+    <title>Lista Kategorii</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <header>
-        <h1>Wydarzenia</h1>
+        <h1>Kategorie</h1>
     </header>
-    <section class="event-list">
+    <section class="category-list">
         <ul>
-            {% for event in events %}
-                <li><a href="{% url 'event_detail' event.pk %}">{{ event.name }}</a></li>
+            {% for category in categories %}
+                <li><a href="{% url 'category_detail' category.pk %}">{{ category.name }}</a></li>
             {% empty %}
-                <li>Brak wydarzeń</li>
+                <li>Brak kategorii</li>
             {% endfor %}
         </ul>
     </section>

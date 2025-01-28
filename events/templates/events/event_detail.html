@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Szczegóły Wydarzenia</title>
+    <title>{{ event.name }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <h1>{{ event.name }}</h1>
-    <p>{{ event.description }}</p>
-    <a href="{% url 'event_edit' event.pk %}">Edytuj</a>
-    <a href="{% url 'event_delete' event.pk %}">Usuń</a>
-    <a href="{% url 'event_list' %}">Powrót do listy</a>
+    <header>
+        <h1>{{ event.name }}</h1>
+    </header>
+    <section class="event-detail">
+        <p>{{ event.description }}</p>
+        <p>Data: {{ event.date }}</p>
+        <p>Lokalizacja: {{ event.location }}</p>
+        <p>Kategoria: {{ event.category.name }}</p>
+        <a href="{% url 'event_list' %}" class="btn">Powrót do listy wydarzeń</a>
+    </section>
 </body>
 </html>

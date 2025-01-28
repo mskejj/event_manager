@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj/Edytuj kategorię</title>
+</head>
+<body>
+    <h1>{% if form.instance.pk %}Edytuj kategorię{% else %}Dodaj kategorię{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Zapisz</button>
+    </form>
+</body>
+</html>

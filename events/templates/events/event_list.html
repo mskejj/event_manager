@@ -1,24 +1,32 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista Wydarzeń</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <header>
-        <h1>Wydarzenia</h1>
-    </header>
-    <section class="event-list">
-        <ul>
-            {% for event in events %}
-                <li><a href="{% url 'event_detail' event.pk %}">{{ event.name }}</a></li>
-            {% empty %}
-                <li>Brak wydarzeń</li>
-            {% endfor %}
-        </ul>
-    </section>
-</body>
-</html>
+{% extends 'events/base.html' %}
+{% load static %}
+
+{% block title %}Lista Wydarzeń{% endblock %}
+
+{% block content %}
+<header class="bg-gradient smaller-header">
+    <div class="container py-3 text-center">
+        <h1 class="text-white display-4">Wydarzenia</h1>
+        <p class="text-white-50">Znajdź swoje kolejne wydarzenie już dziś!</p>
+    </div>
+</header>
+
+<main class="container my-5">
+    <div class="row">
+        {% for event in events %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100 event-card"> <!-- Dodano event-card -->
+                <img src="{% static 'images/event_placeholder.jpg' %}" class="card-img-top" alt="Wydarzenie"> <!-- Przywrócono obrazek -->
+                <div class="card-body">
+                    <h5 class="card-title">{{ event.name }}</h5>
+                    <p class="card-text">{{ event.description|truncatewords:20 }}</p>
+                    <a href="{% url 'event_detail' event.pk %}" class="btn btn-primary">Zobacz szczegóły</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center">Brak wydarzeń do wyświetlenia.</p>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}

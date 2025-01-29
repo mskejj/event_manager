@@ -100,8 +100,12 @@ USE_TZ = True  # Włączamy strefy czasowe
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'  # URL dla plików statycznych
-STATICFILES_DIRS = [BASE_DIR / "static"]  # Dodajemy ścieżkę do katalogu z plikami statycznymi
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # Dodajemy ścieżkę do katalogu z plikami statycznymi
 STATIC_ROOT = BASE_DIR / "staticfiles"  # Ścieżka do katalogu dla skompilowanych plików statycznych
+
+# Media files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Domyślny typ klucza głównego
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

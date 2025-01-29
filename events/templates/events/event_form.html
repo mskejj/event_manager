@@ -1,22 +1,18 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formularz Wydarzenia</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <header>
-        <h1>Formularz Wydarzenia</h1>
-    </header>
-    <section class="event-form">
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn">Zapisz</button>
-        </form>
-    </section>
-</body>
-</html>
+{% extends 'events/base.html' %}
+{% load static %}
+
+{% block title %}Dodaj Wydarzenie{% endblock %}
+
+{% block content %}
+<header class="header-black">
+    Super! Dodaj Wydarzenie
+</header>
+<div class="container">
+    <h2 class="my-4">Dodaj Wydarzenie</h2>
+    <form method="post" enctype="multipart/form-data">  <!-- Dodane enctype -->
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Zapisz</button>
+    </form>
+</div>
+{% endblock %}

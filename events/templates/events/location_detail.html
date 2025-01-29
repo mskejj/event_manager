@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ location.city }}, {{ location.address }}</title>
+    <title>{{ location.city }}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <header>
-        <h1>{{ location.city }}, {{ location.address }}</h1>
+        <h1>{{ location.city }}</h1>
     </header>
     <section class="location-detail">
-        <a href="{% url 'location_list' %}" class="btn">Wróć do listy lokalizacji</a>
+        <p>{{ location.address }}</p>
+        <a href="{% url 'location_list' %}">Powrót do listy lokalizacji</a>
     </section>
 </body>
 </html>

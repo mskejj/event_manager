@@ -3,6 +3,10 @@ from .models import Event, Category, Location, Ticket
 from .forms import EventForm, CategoryForm, LocationForm, TicketForm
 from django.urls import reverse_lazy
 from django.views.generic import DeleteView
+from django.db.models import Count
+from datetime import datetime
+import os
+from django.conf import settings
 
 # Widok listy wydarzeń
 def event_list(request):
@@ -10,16 +14,24 @@ def event_list(request):
     return render(request, 'events/event_list.html', {'events': events})
 
 # Widok szczegółów wydarzenia
-def event_detail(request, pk):
-    event = get_object_or_404(Event, pk=pk)  # Pobiera konkretne wydarzenie
+def event_detail(request, id):
+    event = get_object_or_404(Event, id=id)  # Pobiera konkretne wydarzenie
     return render(request, 'events/event_detail.html', {'event': event})
 
 # Widok tworzenia nowego wydarzenia
 def event_create(request):
     if request.method == 'POST':
-        form = EventForm(request.POST)
+        form = EventForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            event = form.save(commit=False)
+            if 'image' in request.FILES:
+                image = request.FILES['image']
+                image_path = os.path.join(settings.MEDIA_ROOT, 'events/images', image.name)
+                with open(image_path, 'wb+') as destination:
+                    for chunk in image.chunks():
+                        destination.write(chunk)
+                event.image = 'events/images/' + image.name
+            event.save()
             return redirect('event_list')
     else:
         form = EventForm()
@@ -153,3 +165,8 @@ class TicketDeleteView(DeleteView):
     model = Ticket
     template_name = 'events/ticket_confirm_delete.html'  # Szablon potwierdzenia usunięcia
     success_url = reverse_lazy('ticket_list')  # Po usunięciu przekierowanie na listę biletów
+
+def events_per_month(request):
+    current_month = datetime.now().month
+    events_in_month = Event.objects.filter(date__month=current_month).annotate(num_events=Count('id'))
+    return render(request, 'events/events_per_month.html', {'events_in_month': events_in_month})

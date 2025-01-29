@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ ticket.ticket_type }} - {{ ticket.event.name }}</title>
+    <title>{{ ticket.event.name }}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <header>
-        <h1>{{ ticket.ticket_type }} - {{ ticket.event.name }}</h1>
+        <h1>{{ ticket.event.name }}</h1>
     </header>
     <section class="ticket-detail">
-        <p>Cena: {{ ticket.price }} PLN</p>
-        <p>Dostępne: {{ ticket.available_quantity }}</p>
-        <a href="{% url 'ticket_list' %}" class="btn">Wróć do listy biletów</a>
+        <p>Cena: {{ ticket.price }} zł</p>
+        <p>Dostępne: {{ ticket.available }}</p>
+        <a href="{% url 'ticket_list' %}">Powrót do listy biletów</a>
     </section>
 </body>
 </html>

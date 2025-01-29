@@ -7,7 +7,7 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         default_category, created = Category.objects.get_or_create(name='Domyślna kategoria', defaults={'description': 'Default category'})
         for event in Event.objects.all():
-            if isinstance(event.category, str):
+            if isinstance(event.category_id, str):
                 event.category = default_category
                 event.save()
         self.stdout.write(self.style.SUCCESS('Successfully fixed event categories'))

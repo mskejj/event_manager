@@ -9,12 +9,12 @@
 </head>
 <body>
     <header>
-        <h1>Bilety</h1>
+        <h1>Lista Biletów</h1>
     </header>
     <section class="ticket-list">
         <ul>
             {% for ticket in tickets %}
-                <li><a href="{% url 'ticket_detail' ticket.pk %}">{{ ticket.ticket_type }} - {{ ticket.price }} PLN - Dostępne: {{ ticket.available_quantity }}</a></li>
+                <li><a href="{% url 'ticket_detail' ticket.pk %}">{{ ticket.event.name }} - {{ ticket.price }} zł</a></li>
             {% empty %}
                 <li>Brak biletów</li>
             {% endfor %}

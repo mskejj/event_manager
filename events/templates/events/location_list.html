@@ -9,12 +9,12 @@
 </head>
 <body>
     <header>
-        <h1>Lokalizacje</h1>
+        <h1>Lista Lokalizacji</h1>
     </header>
     <section class="location-list">
         <ul>
             {% for location in locations %}
-                <li><a href="{% url 'location_detail' location.pk %}">{{ location.city }} - {{ location.address }}</a></li>
+                <li><a href="{% url 'location_detail' location.pk %}">{{ location.city }}, {{ location.address }}</a></li>
             {% empty %}
                 <li>Brak lokalizacji</li>
             {% endfor %}

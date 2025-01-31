@@ -19,15 +19,21 @@ Aby uruchomić aplikację, użyj poniższego polecenia:
 ```
 python src/main.py
 ```
+## Funkcje
+Aplikacja pozwala na:
+
+Dodawanie nowych wydarzeń (z możliwością załadowania zdjęcia)
+Edytowanie istniejących wydarzeń
+Usuwanie wydarzeń
+Wyświetlanie listy wydarzeń w różnych kategoriach i lokalizacjach
+Wyświetlanie szczegółów wydarzenia (w tym zdjęcia, opisu, daty i miejsca)
 
 ## Użycie
 
 Aplikacja pozwala na:
 
 - Dodawanie nowych wydarzeń
-- Usuwanie istniejących wydarzeń
 - Wyświetlanie listy wydarzeń
-
-## Wkład
-
-Wszelkie sugestie i poprawki są mile widziane. Proszę o zgłaszanie problemów lub propozycji zmian.
+- Wyświetlanie listy kategorii
+- Wyświetlanie listy biletów
+- Wyświetlanie listy lokalizacji

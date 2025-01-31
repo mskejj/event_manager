@@ -1,0 +1,20 @@
+{% extends 'events/base.html' %}
+
+{% block title %}Dodaj Wydarzenie{% endblock %}
+
+{% block content %}
+<header class="bg-gradient smaller-header">
+    <div class="container py-3 text-center">
+        <h1 class="text-white display-4">Dodaj Wydarzenie</h1>
+        <p class="text-white-50">Wypełnij poniższy formularz, aby dodać nowe wydarzenie.</p>
+    </div>
+</header>
+
+<main class="container my-5">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Dodaj Wydarzenie</button>
+    </form>
+</main>
+{% endblock %}
